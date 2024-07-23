@@ -33,7 +33,6 @@ const factoryOwnerLogin = async(req,res)=>{
             return res.status(400).send({message:"invalid credantails"})
         }
         const token = await generateToken({_id:owner._id});
-        console.log(token)
         if(password===owner.password){
             return res.status(200).json({
                 success:true,

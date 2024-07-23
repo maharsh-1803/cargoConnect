@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const factoryOwnerRoute = require('./route/factoryOwner.route')
 const factoryRoute = require('./route/factory.route')
+const angencyRoute = require('./route/truckAgency.route');
 
 
 const connectToMongoDB = async()=>{
@@ -29,3 +30,4 @@ app.use(cors());
 
 app.use('/api/factoryOwner',factoryOwnerRoute);
 app.use('/api/factory',factoryRoute);
+app.use('/api/agency',angencyRoute);
