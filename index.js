@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require('dotenv')
 dotenv.config();
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const factoryOwnerRoute = require('./route/factoryOwner.route')
 const factoryRoute = require('./route/factory.route')
 
@@ -24,7 +25,7 @@ app.listen(process.env.PORT,()=>{
 
 
 app.use(bodyParser.json());
-
+app.use(cors());
 
 app.use('/api/factoryOwner',factoryOwnerRoute);
 app.use('/api/factory',factoryRoute);
