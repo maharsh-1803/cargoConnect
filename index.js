@@ -8,7 +8,7 @@ const cors = require('cors')
 const factoryOwnerRoute = require('./route/factoryOwner.route')
 const factoryRoute = require('./route/factory.route')
 const angencyRoute = require('./route/truckAgency.route');
-
+const TruckRouteRouter = require('./route/truckRoute.route')
 
 const connectToMongoDB = async()=>{
     try {
@@ -31,3 +31,4 @@ app.use(cors());
 app.use('/api/factoryOwner',factoryOwnerRoute);
 app.use('/api/factory',factoryRoute);
 app.use('/api/agency',angencyRoute);
+app.use('/api/truckRoute',TruckRouteRouter)

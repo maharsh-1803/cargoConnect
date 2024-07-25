@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 const secretKey = process.env.SECRET_KEY
 
-const adminToken = (req, res, next) => {
+const AuthToken = (req, res, next) => {
     const token = req.headers['authorization'];
 
     if (!token) {
@@ -20,4 +20,4 @@ const adminToken = (req, res, next) => {
     });
 };
 
-module.exports = adminToken;
+module.exports = AuthToken;

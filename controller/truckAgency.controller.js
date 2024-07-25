@@ -3,7 +3,7 @@ const truckAgency = require("../model/truckAgency.model");
 
 const addAgency = async (req, res) => {
     try {
-        const {agencyName,contactPersonNum,GST_no,country,state,city,noOfTrucks,routes,email,password,address,additionalDetails} = req.body;
+        const {agencyName,contactPersonNum,GST_no,country,state,city,noOfTrucks,email,password,address,additionalDetails} = req.body;
         const Logo = req.file ? req.file.filename : null;
         const newAgency = new truckAgency({
             agencyName,
@@ -13,7 +13,6 @@ const addAgency = async (req, res) => {
             state,
             city,
             noOfTrucks,
-            routes,
             email,
             password,
             address,

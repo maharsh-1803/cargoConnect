@@ -1,5 +1,12 @@
 const mongoose =require('mongoose');
 
+function getISTTime() {
+    const istOffset = 5.5 * 60 *60 * 1000; // IST is UTC +5:30
+    const now = new Date();
+    const istTime = new Date(now.getTime() + istOffset);
+    return istTime;
+  }
+
 const truckAgencySchema = new mongoose.Schema({
     agencyName:{
         type:String,
@@ -28,10 +35,6 @@ const truckAgencySchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    routes:{
-        type:[String],
-        required:true
-    },
     email:{
         type:String,
         required:true,
@@ -50,6 +53,10 @@ const truckAgencySchema = new mongoose.Schema({
     },
     additionalDetails:{
         type:String
+    }
+},{
+    timestamps: {
+      currentTime: () => getISTTime() 
     }
 })
 
