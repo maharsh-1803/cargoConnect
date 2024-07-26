@@ -3,11 +3,12 @@ const truckAgency = require("../model/truckAgency.model");
 
 const addAgency = async (req, res) => {
     try {
-        const {agencyName,contactPersonNum,GST_no,country,state,city,noOfTrucks,email,password,address,additionalDetails} = req.body;
+        const {agencyName,contactPersonNum,agencyOwnerName,GST_no,country,state,city,noOfTrucks,email,password,address,additionalDetails} = req.body;
         const Logo = req.file ? req.file.filename : null;
         const newAgency = new truckAgency({
             agencyName,
             contactPersonNum,
+            agencyOwnerName,
             GST_no,
             country,
             state,
@@ -44,6 +45,7 @@ const loginAgencyOwner = async(req,res)=>{
             return res.status(200).json({
                 success:true,
                 message:"login successfully",
+                agencyOwnerName:agency.agencyOwnerName,
                 token:token.token
             })
         }
@@ -51,6 +53,8 @@ const loginAgencyOwner = async(req,res)=>{
         return res.status(500).send({error:error.message})
     }
 }
+
+
 
 module.exports={
     addAgency,

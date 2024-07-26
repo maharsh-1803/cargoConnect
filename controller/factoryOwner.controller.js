@@ -37,6 +37,7 @@ const factoryOwnerLogin = async(req,res)=>{
             return res.status(200).json({
                 success:true,
                 message:"owner login successfully",
+                ownername:owner.name,
                 token:token.token
             })
         }

@@ -12,6 +12,10 @@ const truckAgencySchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    agencyOwnerName:{
+        type:String,
+        required:true
+    },
     contactPersonNum:{
         type:Number,
         required:true
