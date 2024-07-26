@@ -54,9 +54,25 @@ const loginAgencyOwner = async(req,res)=>{
     }
 }
 
-
+const getAgencyById = async(req,res)=>{
+    try {
+        const {id} = req.params;
+        const agency = await truckAgency.findById(id);
+        if(!agency){
+            return res.status(404).send({message:"agency not found"})
+        }
+        return res.status(200).json({
+            success:true,
+            message:"agency retrived successfully",
+            agency:agency
+        })
+    } catch (error) {
+        return res.status(500).send({error:error.message})
+    }
+}
 
 module.exports={
     addAgency,
-    loginAgencyOwner
+    loginAgencyOwner,
+    getAgencyById
 }
